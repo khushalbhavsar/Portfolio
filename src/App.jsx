@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import profilePhoto from "../IMG/ProfilePhoto.jpg";
 
 // Single-file GitHub-style portfolio (React + Tailwind)
 // Default export: PortfolioApp component
@@ -94,7 +95,7 @@ export default function PortfolioApp() {
       <header className="max-w-6xl mx-auto p-6 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <img
-            src="/IMG/ProfilePhoto.jpg"
+            src={profilePhoto}
             alt="profile"
             className="w-20 h-20 rounded-xl ring-4 ring-blue-400 dark:ring-indigo-500 object-cover shadow-2xl border-2 border-white dark:border-slate-800"
           />
