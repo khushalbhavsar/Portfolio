@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import profilePhoto from "../IMG/ProfilePhoto.jpg";
+import resumePdf from "../Resume/Khushal_Bhavsar_Resume.pdf";
+import awsCertificate from "../Certificate/13940 - Khushal Ravindra Bhavsar - Course Completion Certificate.pdf";
 
 // Single-file GitHub-style portfolio (React + Tailwind)
 // Default export: PortfolioApp component
@@ -85,7 +87,7 @@ const certificates = [
     title: "AWS Course Completion Certificate",
     issuer: "Ethan's Tech",
     date: "October 2025",
-    file: "/Certificate/13940 - Khushal Ravindra Bhavsar - Course Completion Certificate.pdf",
+    file: awsCertificate,
   },
 ];
 
@@ -125,7 +127,7 @@ export default function PortfolioApp() {
             Contact
           </a>
           <motion.a
-            href="/Resume/Khushal_Bhavsar_Resume.pdf"
+            href={resumePdf}
             target="_blank"
             rel="noopener noreferrer"
             className="ml-3 inline-flex items-center px-4 py-2 border-0 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
