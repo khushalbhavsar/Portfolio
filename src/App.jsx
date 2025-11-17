@@ -19,7 +19,7 @@ const projects = [
     desc:
       "Deployed a containerized Node.js app on AWS EKS using ECR as registry. Automated image builds, scans, and encrypted storage for secure deployments. Configured IAM roles, RBAC, and LoadBalancer for secure cluster access. Enabled autoscaling and monitoring with CloudWatch and kubectl verification.",
     tech: ["Node.js", "Docker", "Kubernetes", "AWS EKS", "ECR"],
-    repo: "https://github.com/khushalbhavsar/Nodejs-EKS-ECR-Deployment",
+    repo: "https://github.com/khushalbhavsar/NodeJS-App-on-AWS-EKS-ECR",
     demo: "#",
   },
   {
