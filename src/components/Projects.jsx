@@ -1,0 +1,112 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const projects = [
+  {
+    id: 1,
+    title: "Node.js App Deployment on AWS EKS",
+    desc:
+      "Deployed a containerized Node.js app on AWS EKS using ECR as registry. Automated image builds, scans, and encrypted storage for secure deployments. Configured IAM roles, RBAC, and LoadBalancer for secure cluster access. Enabled autoscaling and monitoring with CloudWatch and kubectl verification.",
+    tech: ["Node.js", "Docker", "Kubernetes", "AWS EKS", "ECR"],
+    repo: "https://github.com/khushalbhavsar/NodeJS-App-on-AWS-EKS-ECR",
+    demo: "#",
+  },
+  {
+    id: 2,
+    title: "TodoApp – Node.js DevOps Pipeline",
+    desc:
+      "Built a Node.js app and containerized it using Docker for portability. Automated CI/CD pipeline with Jenkins to deploy on AWS EC2. Provisioned infrastructure using Terraform and configured IAM policies. Integrated GitHub, Docker, and AWS CLI for continuous delivery.",
+    tech: ["Node.js", "Docker", "Jenkins", "Terraform", "AWS EC2", "CI/CD"],
+    repo: "https://github.com/khushalbhavsar/TodoApp-NodeJS-DevOps-Pipeline",
+    demo: "#",
+  },
+  {
+    id: 3,
+    title: "Flask + AWS Elastic Beanstalk with Private RDS",
+    desc:
+      "Deployed Flask app on AWS Elastic Beanstalk linked with private RDS. Designed secure VPC, subnets, and route tables for private connectivity. Used ALB for load balancing and PyMySQL for DB transactions. Enabled restricted RDS access via bastion host and IAM roles.",
+    tech: ["Flask", "MySQL", "AWS EB", "RDS", "VPC"],
+    repo: "https://github.com/khushalbhavsar/AWS-Flask-RDS-Deployment-on-AWS-Elastic-Beanstalk",
+    demo: "#",
+  },
+  {
+    id: 4,
+    title: "Student Management System – AWS Serverless",
+    desc:
+      "Built a serverless student app using S3, Lambda, API Gateway, and DynamoDB. Implemented CRUD APIs with CORS configuration for frontend integration. Secured access with IAM roles and least-privilege permissions. Delivered scalable, cost-efficient, and fully managed architecture.",
+    tech: ["AWS Lambda", "API Gateway", "S3", "DynamoDB"],
+    repo: "https://github.com/khushalbhavsar/AWS-Student-Management-System",
+    demo: "#",
+  },
+  {
+    id: 5,
+    title: "QuickLoan – Scalable Web App on AWS",
+    desc:
+      "Developed a PHP loan platform on AWS EC2 with MySQL RDS backend. Implemented ALB and Auto Scaling for high availability and fault tolerance. Monitored performance using CloudWatch and optimized Nginx + PHP-FPM. Secured environment with strict Security Groups and VPC isolation.",
+    tech: ["PHP", "MySQL", "Nginx", "AWS EC2", "RDS", "ALB", "Auto Scaling"],
+    repo: "https://github.com/khushalbhavsar/AWS-Quicklone",
+    demo: "#",
+  },
+];
+
+export default function Projects() {
+  return (
+    <section id="projects">
+      <h2 className="text-lg sm:text-xl font-semibold mb-4 text-blue-900 dark:text-indigo-300">PROJECTS</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        {projects.map((p) => (
+          <motion.article
+            key={p.id}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.05 * p.id }}
+            className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl shadow-lg border border-blue-100 dark:border-indigo-800 flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-500/30 dark:hover:shadow-indigo-500/40 hover:border-blue-400 dark:hover:border-indigo-500 transition-all duration-300 cursor-pointer group"
+          >
+            <div>
+              <motion.h3 
+                className="text-sm sm:text-base font-medium text-blue-900 dark:text-indigo-300 group-hover:text-blue-600 dark:group-hover:text-indigo-200 transition-colors"
+                whileHover={{ x: 5 }}
+              >
+                {p.title}
+              </motion.h3>
+
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">{p.desc}</p>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {p.tech.map((t, idx) => (
+                  <motion.span 
+                    key={t} 
+                    className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-indigo-900/50 text-blue-700 dark:text-indigo-300"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    transition={{ delay: idx * 0.05 }}
+                  >
+                    {t}
+                  </motion.span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2">
+              <motion.a
+                href={p.repo}
+                className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 border-0 rounded-lg font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Code
+              </motion.a>
+              <motion.a
+                href={p.demo}
+                className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium border-2 border-blue-500 dark:border-indigo-500 bg-transparent hover:bg-blue-500 hover:dark:bg-indigo-500 text-blue-600 dark:text-indigo-400 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
+                whileHover={{ scale: 1.08, x: 2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Demo
+              </motion.a>
+            </div>
+          </motion.article>
+        ))}
+      </div>
+    </section>
+  );
+}
