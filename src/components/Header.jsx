@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import profilePhoto from "../../IMG/ProfilePhoto.jpg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ export default function Header() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3 sm:gap-4">
           <img
-            src="/IMG/ProfilePhoto.jpg"
+            src={profilePhoto}
             alt="profile"
             className="w-16 h-16 sm:w-20 sm:h-20 rounded-xl ring-4 ring-blue-400 dark:ring-indigo-500 object-cover shadow-2xl border-2 border-white dark:border-slate-800"
           />
