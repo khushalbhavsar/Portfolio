@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import profilePhoto from "../../IMG/ProfilePhoto.jpg";
-import resumePdf from "../../Resume/Khushal_Bhavsar_Resume.pdf";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +38,7 @@ export default function Header() {
             Contact
           </a>
           <motion.a
-            href={resumePdf}
+            href="/Khushal_Bhavsar_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="ml-2 inline-flex items-center px-4 py-2 border-0 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
@@ -121,7 +120,7 @@ export default function Header() {
                 Contact
               </a>
               <a
-                href={resumePdf}
+                href="/Khushal_Bhavsar_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-4 py-2 border-0 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg transition-all duration-300"
