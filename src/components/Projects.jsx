@@ -4,11 +4,22 @@ import { motion } from "framer-motion";
 const projects = [
   {
     id: 1,
-    title: "Node.js App Deployment on AWS EKS",
+    title: "TodoApp Node.js - Complete DevOps Pipeline",
     desc:
-      "Deployed a containerized Node.js app on AWS EKS using ECR as registry. Automated image builds, scans, and encrypted storage for secure deployments. Configured IAM roles, RBAC, and LoadBalancer for secure cluster access. Enabled autoscaling and monitoring with CloudWatch and kubectl verification.",
-    tech: ["Node.js", "Docker", "Kubernetes", "AWS EKS", "ECR"],
-    repo: "https://github.com/khushalbhavsar/NodeJS-App-on-AWS-EKS-ECR",
+      "A production-ready CI/CD-enabled Todo application built with Node.js & Express using industry-standard DevOps tools. Automated pipeline includes SonarQube code quality checks, Docker containerization, image push to Docker Hub, and deployment via Kubernetes or Docker Compose. Monitoring integrated using Prometheus & Grafana with custom metrics visualization.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "Jenkins",
+      "SonarQube",
+      "Docker",
+      "Docker Hub",
+      "Kubernetes",
+      "Prometheus",
+      "Grafana",
+      "GitHub"
+    ],
+    repo: "https://github.com/khushalbhavsar/TodoApp-End-to-End-CICD-Monitoring.git",
     demo: "#",
   },
   {
