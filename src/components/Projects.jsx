@@ -23,15 +23,6 @@ const projects = [
     demo: "#",
   },
   {
-    id: 2,
-    title: "TodoApp – Node.js DevOps Pipeline",
-    desc:
-      "Built a Node.js app and containerized it using Docker for portability. Automated CI/CD pipeline with Jenkins to deploy on AWS EC2. Provisioned infrastructure using Terraform and configured IAM policies. Integrated GitHub, Docker, and AWS CLI for continuous delivery.",
-    tech: ["Node.js", "Docker", "Jenkins", "Terraform", "AWS EC2", "CI/CD"],
-    repo: "https://github.com/khushalbhavsar/TodoApp-NodeJS-DevOps-Pipeline",
-    demo: "#",
-  },
-  {
     id: 3,
     title: "Flask + AWS Elastic Beanstalk with Private RDS",
     desc:
