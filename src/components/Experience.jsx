@@ -6,8 +6,8 @@ const experiences = [
     id: 1,
     role: "DevOps Intern",
     company: "Cloudnautic",
-    period: "July 2025 — Present",
-    description: "Contributed to real-world Cloud and DevOps projects on AWS. Built and automated CI/CD pipelines using Jenkins and GitHub Actions. Implemented Infrastructure as Code (IaC) with Terraform and CloudFormation. Containerized applications using Docker and orchestrated deployments on Kubernetes (EKS). Gained hands-on experience in monitoring, automation, and cloud-native architecture deployment.",
+    period: "July 2025 — December 2025",
+    description: "Worked on deploying and managing AWS cloud infrastructure, including EC2, S3, IAM, VPC, EBS, EFS, RDS, ELB/ALB, DynamoDB, and Lambda, ensuring secure, scalable, and highly available environments. Implemented and maintained CI/CD pipelines using Jenkins and GitLab while following best practices with Git and GitHub to streamline build, test, and deployment processes. Containerized applications using Docker and orchestrated workloads with Kubernetes to enable reliable, scalable, and efficient application deployments. Automated infrastructure provisioning, configuration management, and monitoring using Terraform, CloudFormation, and Ansible, with robust observability and performance tracking through CloudWatch, Prometheus, and Grafana.",
   },
 ];
 
