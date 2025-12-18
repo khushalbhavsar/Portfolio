@@ -14,8 +14,8 @@ export default function PortfolioApp() {
 
       <main className="max-w-6xl mx-auto p-4 sm:p-6 space-y-6 sm:space-y-10">
         <Overview />
-        <Projects />
         <Experience />
+        <Projects />
         <Education />
         <Contact />
         <Footer />
