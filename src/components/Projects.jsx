@@ -23,6 +23,24 @@ const projects = [
     demo: "#",
   },
   {
+  id: 2,
+  title: "Node.js Application Deployment on AWS EKS with ECR",
+  desc:
+    "Built and deployed a containerized Node.js Express application on AWS EKS using Amazon ECR as the image registry. Implemented Docker-based builds, Kubernetes deployments with multiple replicas, LoadBalancer service for external access, health check endpoints, and scalable infrastructure managed via kubectl and eksctl.",
+  tech: [
+    "Node.js",
+    "Docker",
+    "AWS ECR",
+    "AWS EKS",
+    "Kubernetes",
+    "eksctl",
+    "kubectl",
+    "AWS CLI"
+  ],
+  repo: "https://github.com/khushalbhavsar/NodeJS-App-on-AWS-EKS-ECR.git",
+  demo: "#",
+  },
+  {
     id: 3,
     title: "Flask + AWS Elastic Beanstalk with Private RDS",
     desc:
@@ -32,7 +50,24 @@ const projects = [
     demo: "#",
   },
   {
-    id: 4,
+  id: 4,
+  title: "Terraform + AWS EC2 + S3 Static Website Hosting",
+  desc:
+    "Provisioned a production-ready AWS infrastructure using Terraform to host a static website on S3 and an EC2 instance running Apache. Implemented a remote Terraform backend using S3 and DynamoDB for state management and locking, with automated infrastructure deployment and teardown workflows.",
+  tech: [
+    "Terraform",
+    "AWS EC2",
+    "AWS S3",
+    "DynamoDB",
+    "Apache",
+    "AWS IAM",
+    "Linux"
+  ],
+  repo: "https://github.com/khushalbhavsar/Terraform-aws-static-website.git",
+  demo: "#",
+  },
+  {
+    id: 5,
     title: "Student Management System – AWS Serverless",
     desc:
       "Built a serverless student app using S3, Lambda, API Gateway, and DynamoDB. Implemented CRUD APIs with CORS configuration for frontend integration. Secured access with IAM roles and least-privilege permissions. Delivered scalable, cost-efficient, and fully managed architecture.",
@@ -41,7 +76,7 @@ const projects = [
     demo: "#",
   },
   {
-    id: 5,
+    id: 6,
     title: "QuickLoan – Scalable Web App on AWS",
     desc:
       "Developed a PHP loan platform on AWS EC2 with MySQL RDS backend. Implemented ALB and Auto Scaling for high availability and fault tolerance. Monitored performance using CloudWatch and optimized Nginx + PHP-FPM. Secured environment with strict Security Groups and VPC isolation.",
