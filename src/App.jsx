@@ -9,6 +9,7 @@ import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import BackToTop from "./components/BackToTop";
 
 export default function PortfolioApp() {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,6 +46,8 @@ export default function PortfolioApp() {
           <Contact />
           <Footer />
         </main>
+        
+        <BackToTop />
       </motion.div>
     </>
   );

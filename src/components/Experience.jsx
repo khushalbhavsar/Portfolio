@@ -6,7 +6,7 @@ const experiences = [
     id: 1,
     role: "DevOps Intern",
     company: "Cloudnautic",
-    period: "July 2025 — December 2025",
+    period: "June 2024 — December 2024",
     description: "Worked on deploying and managing AWS cloud infrastructure, including EC2, S3, IAM, VPC, EBS, EFS, RDS, ELB/ALB, DynamoDB, and Lambda, ensuring secure, scalable, and highly available environments. Implemented and maintained CI/CD pipelines using Jenkins and GitLab while following best practices with Git and GitHub to streamline build, test, and deployment processes. Containerized applications using Docker and orchestrated workloads with Kubernetes to enable reliable, scalable, and efficient application deployments. Automated infrastructure provisioning, configuration management, and monitoring using Terraform, CloudFormation, and Ansible, with robust observability and performance tracking through CloudWatch, Prometheus, and Grafana.",
     skills: [
       "Amazon Web Services (AWS)",

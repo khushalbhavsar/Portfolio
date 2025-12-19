@@ -1,8 +1,35 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const [formStatus, setFormStatus] = useState({ type: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setFormStatus({ type: '', message: '' });
+    
+    const SERVICE_ID = "service_nyf1j2b";
+    const TEMPLATE_ID = "template_6xdhz3k";
+    const PUBLIC_KEY = "0ocdz2Ex4dtsvZAOU";
+    
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+      .then((response) => {
+        console.log('SUCCESS!', response.status, response.text);
+        setFormStatus({ type: 'success', message: '✓ Message sent successfully! I\'ll get back to you soon.' });
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error('FAILED...', error);
+        setFormStatus({ type: 'error', message: '✗ Failed to send message. Please try again or email directly.' });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
   return (
     <section id="contact" className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-start">
       <motion.div 
@@ -14,60 +41,70 @@ export default function Contact() {
         <h2 className="text-lg sm:text-xl font-semibold text-blue-900 dark:text-indigo-300">CONTACT</h2>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2">Interested in working together? Fill out the form or reach me directly.</p>
 
-        <form className="mt-4 space-y-3" onSubmit={(e) => {
-          e.preventDefault();
-          
-          const SERVICE_ID = "service_nyf1j2b";
-          const TEMPLATE_ID = "template_6xdhz3k";
-          const PUBLIC_KEY = "0ocdz2Ex4dtsvZAOU";
-          
-          emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
-            .then((response) => {
-              console.log('SUCCESS!', response.status, response.text);
-              alert("Message sent successfully!");
-              e.target.reset();
-            })
-            .catch((error) => {
-              console.error('FAILED...', error);
-              alert("Failed to send message: " + (error.text || error.message || 'Please try again.'));
-            });
-        }}>
+        {/* Form Status Message */}
+        <AnimatePresence>
+          {formStatus.message && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className={`mt-4 p-3 rounded-lg text-sm font-medium ${
+                formStatus.type === 'success' 
+                  ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700' 
+                  : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-700'
+              }`}
+            >
+              {formStatus.message}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
           <input 
             name="name" 
             type="text"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
             placeholder="Your name" 
           />
           <input 
             name="email" 
             type="email"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
             placeholder="Your email" 
           />
           <input 
             name="title" 
             type="text"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
             placeholder="Subject" 
           />
           <textarea 
             name="message" 
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
             rows={5} 
             placeholder="Message"
           ></textarea>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <motion.button 
               type="submit"
-              className="text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border-0 font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              disabled={isSubmitting}
+              className="text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg border-0 font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+              whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
+              whileTap={!isSubmitting ? { scale: 0.95 } : {}}
             >
-              Send
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Sending...
+                </>
+              ) : 'Send'}
             </motion.button>
             <motion.a 
               href="mailto:khushalbhavsar41@gmail.com" 
