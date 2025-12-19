@@ -50,8 +50,8 @@ export default function Contact() {
               exit={{ opacity: 0, y: -10 }}
               className={`mt-4 p-3 rounded-lg text-sm font-medium ${
                 formStatus.type === 'success' 
-                  ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 border border-green-300 dark:border-green-700' 
-                  : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-700'
+                  ? 'bg-blue-100 dark:bg-indigo-900/30 text-blue-700 dark:text-indigo-300 border border-blue-300 dark:border-indigo-700' 
+                  : 'bg-blue-50 dark:bg-slate-700/50 text-blue-800 dark:text-indigo-200 border border-blue-200 dark:border-indigo-800'
               }`}
             >
               {formStatus.message}
@@ -64,27 +64,27 @@ export default function Contact() {
             name="name" 
             type="text"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200" 
             placeholder="Your name" 
           />
           <input 
             name="email" 
             type="email"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200" 
             placeholder="Your email" 
           />
           <input 
             name="title" 
             type="text"
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200" 
             placeholder="Subject" 
           />
           <textarea 
             name="message" 
             required
-            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200 valid:border-green-400 dark:valid:border-green-600" 
+            className="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border border-blue-200 dark:border-indigo-700 bg-transparent focus:border-blue-400 dark:focus:border-indigo-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-indigo-900 outline-none transition-all duration-200" 
             rows={5} 
             placeholder="Message"
           ></textarea>

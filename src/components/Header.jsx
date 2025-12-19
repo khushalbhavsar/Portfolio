@@ -23,22 +23,22 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-3">
-          <a href="#overview" className="text-sm hover:underline">
+          <a href="#overview" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Overview
           </a>
-          <a href="#experience" className="text-sm hover:underline">
+          <a href="#experience" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Experience
           </a>
-          <a href="#projects" className="text-sm hover:underline">
+          <a href="#projects" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Projects
           </a>
-          <a href="#certifications" className="text-sm hover:underline">
+          <a href="#certifications" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Certifications
           </a>
-          <a href="#education" className="text-sm hover:underline">
+          <a href="#education" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Education
           </a>
-          <a href="#contact" className="text-sm hover:underline">
+          <a href="#contact" className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors">
             Contact
           </a>
           <motion.a
