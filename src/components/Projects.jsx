@@ -129,16 +129,10 @@ export default function Projects() {
                 className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 border-0 rounded-lg font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Code
-              </motion.a>
-              <motion.a
-                href={p.demo}
-                className="text-xs sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg font-medium border-2 border-blue-500 dark:border-indigo-500 bg-transparent hover:bg-blue-500 hover:dark:bg-indigo-500 text-blue-600 dark:text-indigo-400 hover:text-white transition-all duration-300 shadow-md hover:shadow-lg"
-                whileHover={{ scale: 1.08, x: 2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Demo
               </motion.a>
             </div>
           </motion.article>

@@ -17,7 +17,7 @@ export default function Header() {
           />
           <div>
             <h1 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white">Khushal Bhavsar</h1>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">AWS & DevOps Engineer</p>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">AWS Certified Solutions Architect | DevOps & Cloud Engineer</p>
           </div>
         </div>
 
