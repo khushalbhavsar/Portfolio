@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Overview from "./components/Overview";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
+import Certifications from "./components/Certifications";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -16,6 +17,7 @@ export default function PortfolioApp() {
         <Overview />
         <Experience />
         <Projects />
+        <Certifications />
         <Education />
         <Contact />
         <Footer />

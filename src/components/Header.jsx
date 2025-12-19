@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import profilePhoto from "../../IMG/ProfilePhoto.jpg";
+
+const profilePhoto = "/IMG/ProfilePhoto.jpg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,11 +26,14 @@ export default function Header() {
           <a href="#overview" className="text-sm hover:underline">
             Overview
           </a>
+          <a href="#experience" className="text-sm hover:underline">
+            Experience
+          </a>
           <a href="#projects" className="text-sm hover:underline">
             Projects
           </a>
-          <a href="#experience" className="text-sm hover:underline">
-            Experience
+          <a href="#certifications" className="text-sm hover:underline">
+            Certifications
           </a>
           <a href="#education" className="text-sm hover:underline">
             Education
@@ -38,9 +42,8 @@ export default function Header() {
             Contact
           </a>
           <motion.a
-            href="/Khushal_Bhavsar_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/Resume/Khushal_Bhavsar_Resume.pdf"
+            download="Khushal_Bhavsar_Resume.pdf"
             className="ml-2 inline-flex items-center px-4 py-2 border-0 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl hover:shadow-blue-500/50 dark:hover:shadow-indigo-500/50 transition-all duration-300"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -92,6 +95,13 @@ export default function Header() {
                 Overview
               </a>
               <a
+                href="#experience"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors py-2 px-3 hover:bg-blue-50 dark:hover:bg-indigo-900/30 rounded-lg"
+              >
+                Experience
+              </a>
+              <a
                 href="#projects"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors py-2 px-3 hover:bg-blue-50 dark:hover:bg-indigo-900/30 rounded-lg"
@@ -99,11 +109,11 @@ export default function Header() {
                 Projects
               </a>
               <a
-                href="#experience"
+                href="#certifications"
                 onClick={() => setIsMenuOpen(false)}
                 className="text-sm hover:text-blue-600 dark:hover:text-indigo-400 transition-colors py-2 px-3 hover:bg-blue-50 dark:hover:bg-indigo-900/30 rounded-lg"
               >
-                Experience
+                Certifications
               </a>
               <a
                 href="#education"
@@ -120,9 +130,8 @@ export default function Header() {
                 Contact
               </a>
               <a
-                href="/Khushal_Bhavsar_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Resume/Khushal_Bhavsar_Resume.pdf"
+                download="Khushal_Bhavsar_Resume.pdf"
                 className="inline-flex items-center justify-center px-4 py-2 border-0 rounded-lg text-sm font-medium bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-lg transition-all duration-300"
               >
                 Resume

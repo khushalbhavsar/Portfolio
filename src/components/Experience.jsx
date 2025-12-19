@@ -8,6 +8,18 @@ const experiences = [
     company: "Cloudnautic",
     period: "July 2025 — December 2025",
     description: "Worked on deploying and managing AWS cloud infrastructure, including EC2, S3, IAM, VPC, EBS, EFS, RDS, ELB/ALB, DynamoDB, and Lambda, ensuring secure, scalable, and highly available environments. Implemented and maintained CI/CD pipelines using Jenkins and GitLab while following best practices with Git and GitHub to streamline build, test, and deployment processes. Containerized applications using Docker and orchestrated workloads with Kubernetes to enable reliable, scalable, and efficient application deployments. Automated infrastructure provisioning, configuration management, and monitoring using Terraform, CloudFormation, and Ansible, with robust observability and performance tracking through CloudWatch, Prometheus, and Grafana.",
+    skills: [
+      "Amazon Web Services (AWS)",
+      "Docker",
+      "Kubernetes",
+      "Jenkins",
+      "GitLab",
+      "Terraform",
+      "Ansible",
+      "DevOps",
+      "Amazon EKS",
+      "Prometheus",
+    ],
   },
 ];
 
@@ -37,6 +49,19 @@ export default function Experience() {
             <p className="mt-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               {e.description}
             </p>
+
+            {e.skills && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {e.skills.map((skill, index) => (
+                  <span
+                    key={index}
+                    className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-indigo-900/50 text-blue-700 dark:text-indigo-300 rounded-full border border-blue-200 dark:border-indigo-700"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
