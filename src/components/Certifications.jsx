@@ -16,10 +16,20 @@ const certifications = [
     ],
   },
   {
+    id: 3,
+    title: "DEVOPS Course Completion Certificate",
+    issuer: "Ethan's Tech",
+    issueDate: "December 21, 2025",
+    link: "https://drive.google.com/file/d/1BAj0ZZBPgECoOuid89S2ac7r-W1J105n/view?usp=sharing",
+    skills: [
+          "Git", "GitHub", "GitLab", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Argo CD", "Docker", "Kubernetes (K8s)", "Terraform", "Ansible", "Prometheus", "Grafana"
+    ],
+  },
+  {
     id: 2,
     title: "AWS Course Completion Certificate",
     issuer: "Ethan's Tech",
-    issueDate: "September 2025",
+    issueDate: "September 04, 2025",
     link: "https://drive.google.com/file/d/1H24u-uEZO3uC2HjJ0Pg8Kku6kvEaTZfC/view?usp=sharing",
     skills: [
       "EC2", "S3", "VPC", "IAM", "ALB", "Auto Scaling", "RDS (MySQL)", "DynamoDB",

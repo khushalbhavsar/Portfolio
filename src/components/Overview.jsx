@@ -35,7 +35,7 @@ export default function Overview() {
             I completed a <b>DevOps Internship at Cloudnautic</b>, where I worked on real-world AWS projects, automated CI/CD pipelines using <b>Jenkins and GitHub Actions</b>, implemented <b>Infrastructure as Code</b> with <b>Terraform and AWS CloudFormation</b>, and deployed containerized applications using <b>Docker and Kubernetes (Amazon EKS)</b>. My technical skill set includes <b>Linux, Git, AWS, Kubernetes, Docker, Terraform</b>, and monitoring and observability tools such as <b>CloudWatch, Prometheus, and Grafana</b>.
         </p>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
-            I am actively seeking full-time opportunities in <b>Cloud Engineering</b>, <b>DevOps Engineering</b>, or <b>Site Reliability Engineering (SRE)</b> roles, where I can contribute to reliable, scalable, and production-ready systems while continuously learning and growing.
+            I am actively seeking full-time opportunities in <b>Cloud Engineer</b>, <b>DevOps Engineer</b>, or <b>Site Reliability Engineer (SRE)</b> roles, where I can contribute to reliable, scalable, and production-ready systems while continuously learning and growing.
         </p>
 
         <div className="mt-6">
