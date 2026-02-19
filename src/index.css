@@ -15,13 +15,77 @@ html {
 
 /* Offset for fixed header when scrolling to sections */
 section[id] {
-    scroll-margin-top: 2rem;
+    scroll-margin-top: 5rem;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
+    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #0a0f1e;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0f1e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Light mode overrides */
+.light body,
+html:not(.dark) body {
+    background-color: #f8fafc;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+/* Glassmorphism utility */
+@layer utilities {
+    .glass {
+        @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    }
+
+    .glass-light {
+        @apply bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl;
+    }
+}
+
+/* Glow effect for timeline */
+.timeline-glow {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.1);
+}
+
+/* Shimmer effect */
+.shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
 }

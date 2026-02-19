@@ -13,15 +13,22 @@ import BackToTop from "./components/BackToTop";
 
 export default function PortfolioApp() {
   const [isLoading, setIsLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time and wait for resources
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
   return (
     <>
@@ -30,23 +37,25 @@ export default function PortfolioApp() {
       </AnimatePresence>
 
       <motion.div
-        className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-blue-950 dark:to-indigo-950 text-slate-900 dark:text-slate-100 transition-colors duration-300"
+        className="min-h-screen bg-slate-50 dark:bg-[#0a0f1e] text-slate-900 dark:text-white transition-colors duration-500"
         initial={{ opacity: 0 }}
         animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <Header />
+        <Header darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <main className="max-w-6xl mx-auto p-4 sm:p-6 space-y-6 sm:space-y-10">
+        <main className="relative">
           <Overview />
-          <Experience />
-          <Projects />
-          <Certifications />
-          <Education />
-          <Contact />
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
+            <Experience />
+            <Projects />
+            <Certifications />
+            <Education />
+            <Contact />
+          </div>
           <Footer />
         </main>
-        
+
         <BackToTop />
       </motion.div>
     </>

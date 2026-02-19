@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FiAward, FiExternalLink } from "react-icons/fi";
 
 const certifications = [
   {
@@ -22,7 +23,7 @@ const certifications = [
     issueDate: "December 21, 2025",
     link: "https://drive.google.com/file/d/1BAj0ZZBPgECoOuid89S2ac7r-W1J105n/view?usp=sharing",
     skills: [
-          "Git", "GitHub", "GitLab", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Argo CD", "Docker", "Kubernetes (K8s)", "Terraform", "Ansible", "Prometheus", "Grafana"
+      "Git", "GitHub", "GitLab", "Jenkins", "GitHub Actions", "GitLab CI/CD", "Argo CD", "Docker", "Kubernetes (K8s)", "Terraform", "Ansible", "Prometheus", "Grafana"
     ],
   },
   {
@@ -39,86 +40,106 @@ const certifications = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 export default function Certifications() {
   return (
     <section id="certifications">
-      <h2 className="text-lg sm:text-xl font-semibold mb-4 text-blue-900 dark:text-indigo-300">
-        CERTIFICATIONS
-      </h2>
-      <div className="grid gap-4 sm:grid-cols-2">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          Certifications
+        </h2>
+        <p className="mt-2 text-gray-500 dark:text-gray-400">Validated credentials and achievements</p>
+        <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full" />
+      </motion.div>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      >
         {certifications.map((cert) => (
           <motion.a
             key={cert.id}
             href={cert.link}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.05 * cert.id }}
-            className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl shadow-lg border border-blue-100 dark:border-indigo-800 hover:shadow-2xl hover:shadow-blue-500/30 dark:hover:shadow-indigo-500/40 hover:border-blue-400 dark:hover:border-indigo-500 transition-all duration-300 cursor-pointer group block"
+            variants={cardVariants}
+            className="group relative bg-white/80 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-5 sm:p-6 block hover:border-blue-500/50 dark:hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
+            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            aria-label={`View ${cert.title} credential`}
           >
-            <div className="flex items-center gap-4">
-              <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                <svg
-                  className="w-6 h-6 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                  />
-                </svg>
-              </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm sm:text-base font-medium text-blue-900 dark:text-indigo-300 group-hover:text-blue-600 dark:group-hover:text-indigo-200 transition-colors">
-                  {cert.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                  {cert.issuer}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
-                  Issued: {cert.issueDate}
-                </p>
-                {cert.expiryDate && (
-                  <p className="text-xs text-slate-500 dark:text-slate-500">
-                    Expires: {cert.expiryDate}
-                  </p>
-                )}
-              </div>
-              <svg
-                className="w-5 h-5 text-slate-400 group-hover:text-blue-500 dark:group-hover:text-indigo-400 transition-colors flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </div>
+            {/* Shimmer/glow effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/0 to-violet-500/0 group-hover:from-blue-500/5 group-hover:via-violet-500/5 group-hover:to-blue-500/5 transition-all duration-500 pointer-events-none" />
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-600 opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 pointer-events-none" />
 
-            {cert.skills && (
-              <div className="mt-4 flex flex-wrap gap-2">
-                {cert.skills.map((skill, index) => (
-                  <span
-                    key={index}
-                    className="px-2 py-1 text-xs font-medium bg-blue-100 dark:bg-indigo-900/50 text-blue-700 dark:text-indigo-300 rounded-full border border-blue-200 dark:border-indigo-700"
-                  >
-                    {skill}
-                  </span>
-                ))}
+            {/* Shimmer line */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/0 to-transparent group-hover:via-blue-500/50 transition-all duration-700" />
+
+            <div className="relative z-10">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                  <FiAward className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm sm:text-base font-semibold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors leading-tight">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 font-medium mt-1">
+                    {cert.issuer}
+                  </p>
+                  <p className="text-xs text-gray-500 dark:text-gray-500 mt-1">
+                    Issued: {cert.issueDate}
+                  </p>
+                  {cert.expiryDate && (
+                    <p className="text-xs text-gray-500 dark:text-gray-500">
+                      Expires: {cert.expiryDate}
+                    </p>
+                  )}
+                </div>
+                <FiExternalLink className="w-5 h-5 text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors flex-shrink-0 mt-1" />
               </div>
-            )}
+
+              {cert.skills && (
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {cert.skills.map((skill, index) => (
+                    <span
+                      key={index}
+                      className="px-2 py-1 text-xs font-medium bg-slate-100 dark:bg-white/5 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200 dark:border-white/10"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </motion.a>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

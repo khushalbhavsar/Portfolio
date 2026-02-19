@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FiBookOpen, FiMapPin, FiCalendar } from "react-icons/fi";
 
 const education = [
   {
@@ -12,32 +13,80 @@ const education = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function Education() {
   return (
     <section id="education">
-      <h2 className="text-lg sm:text-xl font-semibold mb-4 text-blue-900 dark:text-indigo-300">EDUCATION</h2>
-      <div className="space-y-4">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-12"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          Education
+        </h2>
+        <p className="mt-2 text-gray-500 dark:text-gray-400">Academic background</p>
+        <div className="mt-4 mx-auto w-20 h-1 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full" />
+      </motion.div>
+
+      <div className="space-y-5">
         {education.map((edu) => (
           <motion.div
             key={edu.id}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.05 * edu.id }}
-            className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 sm:p-5 rounded-2xl shadow-lg border border-blue-100 dark:border-indigo-800 hover:shadow-2xl hover:shadow-blue-500/30 dark:hover:shadow-indigo-500/40 hover:border-blue-400 dark:hover:border-indigo-500 transition-all duration-300 cursor-pointer group"
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            className="group relative bg-white/80 dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 hover:border-blue-500/50 dark:hover:border-blue-500/30 transition-all duration-300 overflow-hidden"
           >
-            <div className="flex flex-col sm:flex-row items-start justify-between gap-1 sm:gap-0">
-              <div className="flex-1">
-                <h3 className="text-sm sm:text-base font-medium text-blue-900 dark:text-indigo-300">{edu.institution}</h3>
-              </div>
-              <div className="sm:text-right">
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{edu.period}</div>
-              </div>
-            </div>
-            
-            <div className="mt-1 flex flex-col sm:flex-row items-start justify-between gap-1 sm:gap-0">
-              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 flex-1">{edu.degree}</p>
-              <div className="sm:text-right sm:ml-4">
-                <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">{edu.location}</div>
+            {/* Glow effect */}
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-600 opacity-0 group-hover:opacity-15 blur-sm transition-opacity duration-500 pointer-events-none" />
+
+            <div className="relative z-10">
+              <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                {/* Icon */}
+                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                  <FiBookOpen className="w-6 h-6 text-white" />
+                </div>
+
+                <div className="flex-1">
+                  <h3 className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm sm:text-base text-blue-600 dark:text-blue-400 font-medium mt-1">
+                    {edu.degree}
+                  </p>
+
+                  <div className="mt-3 flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
+                    <span className="inline-flex items-center gap-1.5">
+                      <FiCalendar className="w-4 h-4" />
+                      {edu.period}
+                    </span>
+                    <span className="inline-flex items-center gap-1.5">
+                      <FiMapPin className="w-4 h-4" />
+                      {edu.location}
+                    </span>
+                  </div>
+
+                  {edu.cgpa && (
+                    <div className="mt-4">
+                      <span className="inline-flex items-center px-3 py-1.5 text-sm font-semibold rounded-xl bg-gradient-to-r from-blue-500/10 to-violet-500/10 dark:from-blue-500/10 dark:to-violet-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                        CGPA: {edu.cgpa}
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </motion.div>
