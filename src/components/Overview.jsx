@@ -3,26 +3,58 @@ import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiArrowDown, FiDownload } from "react-icons/fi";
 
 const skills = [
-  { name: "AWS", icon: "aws", url: "https://aws.amazon.com/" },
-  { name: "Terraform", icon: "terraform", url: "https://www.terraform.io/" },
-  { name: "Ansible", icon: "ansible", url: "https://www.ansible.com/" },
-  { name: "Python", icon: "python", url: "https://www.python.org/" },
-  { name: "Bash", icon: "bash", url: "https://www.gnu.org/software/bash/" },
+  // Cloud & AWS Services
+  { name: "AWS", icon: "amazonwebservices", url: "https://aws.amazon.com/" },
+  { name: "EC2", icon: "https://icon.icepanel.io/AWS/svg/Compute/EC2.svg", url: "https://aws.amazon.com/ec2/", isCustom: true },
+  { name: "S3", icon: "https://icon.icepanel.io/AWS/svg/Storage/Simple-Storage-Service.svg", url: "https://aws.amazon.com/s3/", isCustom: true },
+  { name: "VPC", icon: "https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Virtual-Private-Cloud.svg", url: "https://aws.amazon.com/vpc/", isCustom: true },
+  { name: "IAM", icon: "https://icon.icepanel.io/AWS/svg/Security-Identity-Compliance/IAM-Identity-Center.svg", url: "https://aws.amazon.com/iam/", isCustom: true },
+  { name: "RDS", icon: "https://icon.icepanel.io/AWS/svg/Database/RDS.svg", url: "https://aws.amazon.com/rds/", isCustom: true },
+  { name: "Lambda", icon: "https://icon.icepanel.io/AWS/svg/Compute/Lambda.svg", url: "https://aws.amazon.com/lambda/", isCustom: true },
+  { name: "CloudWatch", icon: "https://icon.icepanel.io/AWS/svg/Management-Governance/CloudWatch.svg", url: "https://aws.amazon.com/cloudwatch/", isCustom: true },
+  { name: "ALB", icon: "https://icon.icepanel.io/AWS/svg/Networking-Content-Delivery/Elastic-Load-Balancing.svg", url: "https://aws.amazon.com/elasticloadbalancing/", isCustom: true },
+  { name: "Auto Scaling", icon: "https://icon.icepanel.io/AWS/svg/Compute/EC2-Auto-Scaling.svg", url: "https://aws.amazon.com/autoscaling/", isCustom: true },
+  { name: "EKS", icon: "https://icon.icepanel.io/AWS/svg/Containers/Elastic-Kubernetes-Service.svg", url: "https://aws.amazon.com/eks/", isCustom: true },
+  { name: "ECR", icon: "https://icon.icepanel.io/AWS/svg/Containers/Elastic-Container-Registry.svg", url: "https://aws.amazon.com/ecr/", isCustom: true },
+  { name: "CloudFormation", icon: "https://icon.icepanel.io/AWS/svg/Management-Governance/CloudFormation.svg", url: "https://aws.amazon.com/cloudformation/", isCustom: true },
+  
+  // Containers & Orchestration
   { name: "Docker", icon: "docker", url: "https://www.docker.com/" },
   { name: "Kubernetes", icon: "kubernetes", url: "https://kubernetes.io/" },
   { name: "Helm", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/helm/helm-original.svg", url: "https://helm.sh/", isCustom: true },
-  { name: "GitHub Actions", icon: "githubactions", url: "https://github.com/features/actions" },
+  
+  // Infrastructure as Code
+  { name: "Terraform", icon: "terraform", url: "https://www.terraform.io/" },
+  
+  // CI/CD
   { name: "Jenkins", icon: "jenkins", url: "https://www.jenkins.io/" },
+  { name: "GitHub Actions", icon: "githubactions", url: "https://github.com/features/actions" },
+  { name: "GitLab CI", icon: "gitlab", url: "https://docs.gitlab.com/ee/ci/" },
   { name: "ArgoCD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/argocd/argocd-original.svg", url: "https://argo-cd.readthedocs.io/", isCustom: true },
-  { name: "CloudWatch", icon: "https://icon.icepanel.io/AWS/svg/Management-Governance/CloudWatch.svg", url: "https://aws.amazon.com/cloudwatch/", isCustom: true },
+  
+  // Monitoring & Observability
   { name: "Prometheus", icon: "prometheus", url: "https://prometheus.io/" },
   { name: "Grafana", icon: "grafana", url: "https://grafana.com/" },
+  
+  // Security & Code Quality
+  { name: "SonarQube", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sonarqube/sonarqube-original.svg", url: "https://www.sonarsource.com/products/sonarqube/", isCustom: true },
+  { name: "Trivy", icon: "https://cdn.simpleicons.org/trivy/36A9E1", url: "https://trivy.dev/", isCustom: true },
+  { name: "OWASP", icon: "https://owasp.org/assets/images/logo.png", url: "https://owasp.org/www-project-dependency-check/", isCustom: true },
+  
+  // Version Control & OS
+  { name: "Git", icon: "git", url: "https://git-scm.com/" },
+  { name: "Linux", icon: "linux", url: "https://www.linux.org/" },
+  { name: "Ubuntu", icon: "ubuntu", url: "https://ubuntu.com/" },
+  
+  // Programming & Scripting
+  { name: "Bash", icon: "bash", url: "https://www.gnu.org/software/bash/" },
+  { name: "Python", icon: "python", url: "https://www.python.org/" },
 ];
 
 const socialLinks = [
   { icon: FiGithub, href: "https://github.com/khushalbhavsar", label: "GitHub" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/khushal-bhavsar-/", label: "LinkedIn" },
-  { icon: FiInstagram, href: "https://www.instagram.com/khushal_41?igsh=MXViN3Ftd3R1ZDh2Ng==", label: "Instagram" },
+  { icon: FiInstagram, href: "https://www.instagram.com/khushal_bhavsar._", label: "Instagram" },
   { icon: FiMail, href: "mailto:khushalbhavsar41@gmail.com", label: "Email" },
 ];
 
@@ -104,14 +136,42 @@ export default function Overview() {
         >
           {/* Profile Image */}
           <motion.div variants={itemVariants} className="mb-8 flex justify-center">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-violet-500 to-blue-500 rounded-2xl blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-              <img
-                src="/IMG/ProfilePhoto.jpg"
-                alt="Khushal Bhavsar"
-                className="relative w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-2xl object-contain bg-white/10 dark:bg-white/5 ring-2 ring-white/20 shadow-2xl"
-              />
-            </div>
+            <motion.div 
+              className="relative group cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {/* Animated glow ring */}
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500 opacity-0 group-hover:opacity-60 blur-xl transition-all duration-700" />
+              
+              {/* Pulsing outer ring */}
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-500 via-violet-500 to-cyan-500 animate-pulse opacity-50" />
+              
+              {/* Image container */}
+              <div className="relative rounded-full p-1 bg-gradient-to-br from-blue-500 via-violet-500 to-cyan-500">
+                <div className="rounded-full bg-slate-100 dark:bg-slate-900 p-0.5">
+                  <img
+                    src="/IMG/ProfilePhoto.jpg"
+                    alt="Khushal Bhavsar"
+                    className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full object-cover"
+                  />
+                </div>
+              </div>
+              
+              {/* Floating badge */}
+              <motion.div 
+                className="absolute -bottom-1 -right-1 flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 rounded-full border border-slate-200 dark:border-slate-700 shadow-xl"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.5, type: "spring" }}
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                </span>
+                <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">Available</span>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
           {/* Greeting badge */}
@@ -149,13 +209,16 @@ export default function Overview() {
           {/* Description */}
           <motion.div variants={itemVariants} className="mt-6 sm:mt-8 max-w-3xl mx-auto space-y-4">
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b>, an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> and a <b className="text-slate-900 dark:text-white">DevOps & Cloud Engineer</b> with a strong engineering foundation and hands-on experience in building automated, scalable, and secure cloud infrastructure. I hold a <b className="text-slate-900 dark:text-white">B.Tech in Electronics and Telecommunication Engineering</b> from <b className="text-slate-900 dark:text-white">KDK College of Engineering, Nagpur (2021–2025)</b> with a <b className="text-slate-900 dark:text-white">CGPA of 7.22</b>.
+              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b> — an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> and a passionate <b className="text-slate-900 dark:text-white">DevOps & Full Stack Developer</b> focused on building scalable, cloud-native applications and automated infrastructure.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I completed a <b className="text-slate-900 dark:text-white">DevOps Internship at Cloudnautic</b>, where I worked on real-world AWS projects, automated CI/CD pipelines using <b className="text-slate-900 dark:text-white">Jenkins and GitHub Actions</b>, implemented <b className="text-slate-900 dark:text-white">Infrastructure as Code</b> with <b className="text-slate-900 dark:text-white">Terraform and AWS CloudFormation</b>, and deployed containerized applications using <b className="text-slate-900 dark:text-white">Docker and Kubernetes (Amazon EKS)</b>. My technical skill set includes <b className="text-slate-900 dark:text-white">Linux, Git, AWS, Kubernetes, Docker, Terraform</b>, and monitoring and observability tools such as <b className="text-slate-900 dark:text-white">CloudWatch, Prometheus, and Grafana</b>.
+              I specialize in designing and deploying <b className="text-slate-900 dark:text-white">production-grade systems</b> using <b className="text-slate-900 dark:text-white">AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines</b>. With hands-on experience as a <b className="text-slate-900 dark:text-white">DevOps Intern</b>, I have worked on provisioning cloud infrastructure, containerizing applications, and implementing GitOps workflows to deliver reliable and efficient deployments.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I am actively seeking full-time opportunities in <b className="text-slate-900 dark:text-white">Cloud Engineer</b>, <b className="text-slate-900 dark:text-white">DevOps Engineer</b>, or <b className="text-slate-900 dark:text-white">Site Reliability Engineer (SRE)</b> roles, where I can contribute to reliable, scalable, and production-ready systems while continuously learning and growing.
+              I enjoy transforming complex problems into practical solutions through <b className="text-slate-900 dark:text-white">Infrastructure as Code, automation, and modern DevOps practices</b>. My work combines strong <b className="text-slate-900 dark:text-white">Linux fundamentals</b>, cloud architecture expertise, and development experience to build systems that are <b className="text-slate-900 dark:text-white">scalable, secure, and resilient</b>.
+            </p>
+            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+              Beyond technology, I'm passionate about <b className="text-slate-900 dark:text-white">continuous learning</b>, <b className="text-slate-900 dark:text-white">problem solving</b>, and creating impactful real-world projects that improve system reliability and developer productivity.
             </p>
           </motion.div>
 

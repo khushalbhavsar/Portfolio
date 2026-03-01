@@ -3,6 +3,71 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 
 const projects = [
+   {
+    id: 2,
+    title: "Swiggy Clone – GitOps on AWS EKS",
+    desc:
+      "A cloud-native Swiggy clone deployed using a complete GitOps workflow on AWS EKS. Infrastructure was provisioned using Terraform, containerized with Docker, and deployed through Jenkins CI pipeline integrated with ArgoCD for automated Kubernetes deployments. Implemented monitoring, security scanning, and policy enforcement to ensure reliable and production-ready releases.",
+    tech: [
+      "AWS",
+      "EKS",
+      "Terraform",
+      "Jenkins",
+      "ArgoCD",
+      "Docker",
+      "Kubernetes",
+      "ECR",
+      "Prometheus",
+      "Grafana",
+      "GitHub"
+    ],
+    category: ["DevOps", "Full Stack"],
+    repo: "https://github.com/khushalbhavsar/Swiggy-Gitops-EKS.git",
+    demo: "#",
+  },
+  {
+    id: 3,
+    title: "RedBus – Production DevOps Platform",
+    desc:
+      "A production-grade DevOps platform simulating RedBus infrastructure on AWS. Provisioned scalable cloud resources using Terraform and deployed containerized workloads on Amazon EKS. Built automated Jenkins CI/CD pipelines for continuous integration and deployment. Implemented autoscaling, load balancing, and monitoring to ensure high availability and system reliability.",
+    tech: [
+      "AWS",
+      "EKS",
+      "Terraform",
+      "Jenkins",
+      "Docker",
+      "Kubernetes",
+      "EC2",
+      "ALB",
+      "Auto Scaling",
+      "CloudWatch",
+      "GitHub"
+    ],
+    category: ["DevOps", "Full Stack"],
+    repo: "#",
+    demo: "#",
+  },
+  {
+    id: 4,
+    title: "ShopDeploy – End-to-End DevOps Deployment Platform",
+    desc:
+      "ShopDeploy is an end-to-end DevOps deployment project designed to automate application build, testing, and deployment workflows. The platform integrates CI/CD pipelines using Jenkins, containerizes applications with Docker, and deploys them on Kubernetes infrastructure. Infrastructure provisioning follows Infrastructure as Code principles, with monitoring and logging implemented to ensure scalable, reliable, and production-ready deployments.",
+    tech: [
+      "AWS",
+      "Jenkins",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "GitHub",
+      "CI/CD",
+      "Prometheus",
+      "Grafana",
+      "Linux"
+    ],
+    category: ["DevOps", "Full Stack"],
+    repo: "#",
+    demo: "#",
+},
   {
     id: 1,
     title: "TodoApp Node.js - Complete DevOps Pipeline",
@@ -20,31 +85,13 @@ const projects = [
       "Grafana",
       "GitHub"
     ],
-    category: "Full Stack",
+    category: ["DevOps", "Full Stack"],
     repo: "https://github.com/khushalbhavsar/TodoApp-End-to-End-CICD-Monitoring.git",
     demo: "#",
   },
+
   {
-    id: 2,
-    title: "Node.js Application Deployment on AWS EKS with ECR",
-    desc:
-      "Built and deployed a containerized Node.js Express application on AWS EKS using Amazon ECR as the image registry. Implemented Docker-based builds, Kubernetes deployments with multiple replicas, LoadBalancer service for external access, health check endpoints, and scalable infrastructure managed via kubectl and eksctl.",
-    tech: [
-      "Node.js",
-      "Docker",
-      "AWS ECR",
-      "AWS EKS",
-      "Kubernetes",
-      "eksctl",
-      "kubectl",
-      "AWS CLI"
-    ],
-    category: "Backend",
-    repo: "https://github.com/khushalbhavsar/NodeJS-App-on-AWS-EKS-ECR.git",
-    demo: "#",
-  },
-  {
-    id: 3,
+    id: 5,
     title: "Flask + AWS Elastic Beanstalk with Private RDS",
     desc:
       "Deployed Flask app on AWS Elastic Beanstalk linked with private RDS. Designed secure VPC, subnets, and route tables for private connectivity. Used ALB for load balancing and PyMySQL for DB transactions. Enabled restricted RDS access via bastion host and IAM roles.",
@@ -54,25 +101,7 @@ const projects = [
     demo: "#",
   },
   {
-    id: 4,
-    title: "Terraform + AWS EC2 + S3 Static Website Hosting",
-    desc:
-      "Provisioned a production-ready AWS infrastructure using Terraform to host a static website on S3 and an EC2 instance running Apache. Implemented a remote Terraform backend using S3 and DynamoDB for state management and locking, with automated infrastructure deployment and teardown workflows.",
-    tech: [
-      "Terraform",
-      "AWS EC2",
-      "AWS S3",
-      "DynamoDB",
-      "Apache",
-      "AWS IAM",
-      "Linux"
-    ],
-    category: "Backend",
-    repo: "https://github.com/khushalbhavsar/Terraform-aws-static-website.git",
-    demo: "#",
-  },
-  {
-    id: 5,
+    id: 7,
     title: "Student Management System – AWS Serverless",
     desc:
       "Built a serverless student app using S3, Lambda, API Gateway, and DynamoDB. Implemented CRUD APIs with CORS configuration for frontend integration. Secured access with IAM roles and least-privilege permissions. Delivered scalable, cost-efficient, and fully managed architecture.",
@@ -81,19 +110,9 @@ const projects = [
     repo: "https://github.com/khushalbhavsar/AWS-Student-Management-System",
     demo: "#",
   },
-  {
-    id: 6,
-    title: "QuickLoan – Scalable Web App on AWS",
-    desc:
-      "Developed a PHP loan platform on AWS EC2 with MySQL RDS backend. Implemented ALB and Auto Scaling for high availability and fault tolerance. Monitored performance using CloudWatch and optimized Nginx + PHP-FPM. Secured environment with strict Security Groups and VPC isolation.",
-    tech: ["PHP", "MySQL", "Nginx", "AWS EC2", "RDS", "ALB", "Auto Scaling"],
-    category: "Full Stack",
-    repo: "https://github.com/khushalbhavsar/AWS-Quicklone",
-    demo: "#",
-  },
 ];
 
-const categories = ["All", "Frontend", "Backend", "Full Stack"];
+const categories = ["All", "DevOps", "Full Stack", "Backend"];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -124,7 +143,11 @@ export default function Projects() {
   const filteredProjects =
     activeFilter === "All"
       ? projects
-      : projects.filter((p) => p.category === activeFilter);
+      : projects.filter((p) => 
+          Array.isArray(p.category) 
+            ? p.category.includes(activeFilter) 
+            : p.category === activeFilter
+        );
 
   return (
     <section id="projects">
@@ -191,10 +214,14 @@ export default function Projects() {
               <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-blue-500 to-violet-600 opacity-0 group-hover:opacity-20 blur-sm transition-opacity duration-500 pointer-events-none" />
 
               <div className="relative z-10">
-                {/* Category badge */}
-                <span className="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-500/10 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 mb-3">
-                  {p.category}
-                </span>
+                {/* Category badges */}
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {(Array.isArray(p.category) ? p.category : [p.category]).map((cat) => (
+                    <span key={cat} className="inline-flex items-center px-2.5 py-1 text-xs font-medium rounded-lg bg-blue-500/10 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                      {cat}
+                    </span>
+                  ))}
+                </div>
 
                 <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors leading-tight">
                   {p.title}

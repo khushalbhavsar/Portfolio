@@ -2,8 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX, FiDownload } from "react-icons/fi";
 
-const profilePhoto = "/IMG/ProfilePhoto.jpg";
-
 const navLinks = [
   { label: "Overview", href: "#overview" },
   { label: "Experience", href: "#experience" },
@@ -75,26 +73,20 @@ export default function Header({ darkMode, setDarkMode }) {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo / Profile */}
+          {/* Logo / Brand */}
           <motion.a
             href="#overview"
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 group"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative">
-              <img
-                src={profilePhoto}
-                alt="Khushal Bhavsar"
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover ring-2 ring-blue-500/50 group-hover:ring-blue-400 transition-all duration-300"
-              />
-              <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-[#0a0f1e]" />
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+              <span className="text-white font-bold text-sm">KB</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-base font-semibold text-slate-900 dark:text-white leading-tight">
+              <h1 className="text-lg font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
                 Khushal Bhavsar
               </h1>
-              <p className="text-xs text-gray-500 dark:text-gray-400">DevOps & Cloud Engineer</p>
             </div>
           </motion.a>
 
@@ -227,14 +219,12 @@ export default function Header({ darkMode, setDarkMode }) {
             >
               <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-white/10">
                 <div className="flex items-center gap-3">
-                  <img
-                    src={profilePhoto}
-                    alt="Khushal Bhavsar"
-                    className="w-10 h-10 rounded-full object-cover ring-2 ring-blue-500/50"
-                  />
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/20">
+                    <span className="text-white font-bold text-sm">KB</span>
+                  </div>
                   <div>
                     <p className="text-sm font-semibold text-slate-900 dark:text-white">Khushal Bhavsar</p>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">DevOps Engineer</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">DevOps & Cloud Engineer</p>
                   </div>
                 </div>
                 <motion.button
