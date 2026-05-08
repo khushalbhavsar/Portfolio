@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX, FiDownload } from "react-icons/fi";
+import { resumeFileName, resumeUrl } from "../constants";
 
 const navLinks = [
   { label: "Overview", href: "#overview" },
@@ -117,8 +118,8 @@ export default function Header({ darkMode, setDarkMode }) {
             })}
 
             <motion.a
-              href="/Resume/Khushal_Bhavsar_Resume.pdf"
-              download="Khushal_Bhavsar_Resume.pdf"
+              href={resumeUrl}
+              download={resumeFileName}
               className="ml-2 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gradient-to-r from-blue-500 to-violet-600 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
@@ -263,8 +264,8 @@ export default function Header({ darkMode, setDarkMode }) {
 
               <div className="p-4 border-t border-gray-200 dark:border-white/10">
                 <motion.a
-                  href="/Resume/Khushal_Bhavsar_Resume.pdf"
-                  download="Khushal_Bhavsar_Resume.pdf"
+                  href={resumeUrl}
+                  download={resumeFileName}
                   custom={navLinks.length}
                   variants={linkVariants}
                   initial="closed"

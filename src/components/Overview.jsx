@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion } from "framer-motion";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiArrowDown, FiDownload } from "react-icons/fi";
+import { resumeFileName, resumeUrl } from "../constants";
 
 const skills = [
   // Cloud & AWS Services
@@ -69,6 +70,7 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
   const [text, setText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const pauseTimeoutRef = useRef(null);
 
   const tick = useCallback(() => {
     const currentWord = words[wordIndex];
@@ -79,7 +81,7 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
     }
 
     if (!isDeleting && text === currentWord) {
-      setTimeout(() => setIsDeleting(true), pauseTime);
+      pauseTimeoutRef.current = setTimeout(() => setIsDeleting(true), pauseTime);
       return;
     }
 
@@ -95,6 +97,14 @@ function useTypewriter(words, typingSpeed = 100, deletingSpeed = 50, pauseTime =
     const timer = setTimeout(tick, speed);
     return () => clearTimeout(timer);
   }, [tick, isDeleting, typingSpeed, deletingSpeed]);
+
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) {
+        clearTimeout(pauseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return text;
 }
@@ -209,10 +219,10 @@ export default function Overview() {
           {/* Description */}
           <motion.div variants={itemVariants} className="mt-6 sm:mt-8 max-w-3xl mx-auto space-y-4">
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b> an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> with hands-on experience building scalable, cloud-native infrastructure and automated DevOps workflows. I specialize in designing and deploying production-grade systems using <b className="text-slate-900 dark:text-white">AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines with Jenkins, GitLab CI, and ArgoCD</b>.
+              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b>, an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> with hands-on experience building scalable, cloud-native infrastructure and automated DevOps workflows. I specialize in designing and deploying production-grade systems using <b className="text-slate-900 dark:text-white">AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines with Jenkins, GitLab CI, and ArgoCD</b>.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              As a <b className="text-slate-900 dark:text-white">DevOps Intern</b>, I've provisioned cloud infrastructure as code, containerized applications, implemented <b className="text-slate-900 dark:text-white">GitOps workflows</b>, and set up monitoring with <b className="text-slate-900 dark:text-white">Prometheus and Grafana</b> delivering reliable and efficient deployments end to end.
+              As a <b className="text-slate-900 dark:text-white">DevOps Intern</b>, I've provisioned cloud infrastructure as code, containerized applications, implemented <b className="text-slate-900 dark:text-white">GitOps workflows</b>, and set up monitoring with <b className="text-slate-900 dark:text-white">Prometheus and Grafana</b>, delivering reliable and efficient deployments end to end.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               With a strong foundation in <b className="text-slate-900 dark:text-white">Linux and cloud-native architecture</b>, I focus on <b className="text-slate-900 dark:text-white">automation, scalability, and system reliability</b>. I'm passionate about <b className="text-slate-900 dark:text-white">continuous learning</b> and building impactful real-world projects that improve infrastructure resilience and developer productivity.
@@ -232,8 +242,8 @@ export default function Overview() {
               <FiArrowDown className="w-4 h-4" />
             </motion.a>
             <motion.a
-              href="/Resume/Khushal_Bhavsar_Resume.pdf"
-              download="Khushal_Bhavsar_Resume.pdf"
+              href={resumeUrl}
+              download={resumeFileName}
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold rounded-xl border-2 border-gray-300 dark:border-white/20 text-slate-900 dark:text-white hover:bg-white/10 dark:hover:bg-white/5 transition-all duration-300"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

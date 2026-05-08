@@ -14,7 +14,7 @@ const navLinks = [
 const socialLinks = [
   { icon: FiGithub, href: "https://github.com/khushalbhavsar", label: "GitHub" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/khushal-bhavsar-/", label: "LinkedIn" },
-  { icon: FiInstagram, href: "https://www.instagram.com/khushal_41?igsh=MXViN3Ftd3R1ZDh2Ng==", label: "Instagram" },
+  { icon: FiInstagram, href: "https://www.instagram.com/khushalbhavsar_69?igsh=MXViN3Ftd3R1ZDh2Ng==", label: "Instagram" },
   { icon: FiMail, href: "mailto:khushalbhavsar41@gmail.com", label: "Email" },
 ];
 

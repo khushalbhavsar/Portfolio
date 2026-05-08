@@ -6,7 +6,7 @@ import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiSend, FiCheck, FiAlertCirc
 const socialLinks = [
   { icon: FiGithub, href: "https://github.com/khushalbhavsar", label: "GitHub", username: "github.com/khushalbhavsar" },
   { icon: FiLinkedin, href: "https://www.linkedin.com/in/khushal-bhavsar-/", label: "LinkedIn", username: "linkedin.com/in/khushalbhavsar" },
-  { icon: FiInstagram, href: "https://www.instagram.com/khushal_41?igsh=MXViN3Ftd3R1ZDh2Ng==", label: "Instagram", username: "instagram.com/khushalbhavsar" },
+  { icon: FiInstagram, href: "https://www.instagram.com/khushalbhavsar_69?igsh=MXViN3Ftd3R1ZDh2Ng==", label: "Instagram", username: "instagram.com/khushalbhavsar_69" },
   { icon: FiMail, href: "mailto:khushalbhavsar41@gmail.com", label: "Email", username: "khushalbhavsar41@gmail.com" },
 ];
 
@@ -27,16 +27,14 @@ export default function Contact() {
 
     emailjs
       .sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
-      .then((response) => {
-        console.log("SUCCESS!", response.status, response.text);
+      .then(() => {
         setFormStatus({
           type: "success",
           message: "Message sent successfully! I'll get back to you soon.",
         });
         e.target.reset();
       })
-      .catch((error) => {
-        console.error("FAILED...", error);
+      .catch(() => {
         setFormStatus({
           type: "error",
           message: "Failed to send message. Please try again or email directly.",
