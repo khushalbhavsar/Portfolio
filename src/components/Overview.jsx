@@ -209,16 +209,13 @@ export default function Overview() {
           {/* Description */}
           <motion.div variants={itemVariants} className="mt-6 sm:mt-8 max-w-3xl mx-auto space-y-4">
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b> — an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> and a passionate <b className="text-slate-900 dark:text-white">DevOps & Full Stack Developer</b> focused on building scalable, cloud-native applications and automated infrastructure.
+              I'm <b className="text-slate-900 dark:text-white">Khushal Bhavsar</b> — an <b className="text-slate-900 dark:text-white">AWS Certified Solutions Architect – Associate</b> with hands-on experience building scalable, cloud-native infrastructure and automated DevOps workflows. I specialize in designing and deploying production-grade systems using <b className="text-slate-900 dark:text-white">AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines with Jenkins, GitLab CI, and ArgoCD</b>.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I specialize in designing and deploying <b className="text-slate-900 dark:text-white">production-grade systems</b> using <b className="text-slate-900 dark:text-white">AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines</b>. With hands-on experience as a <b className="text-slate-900 dark:text-white">DevOps Intern</b>, I have worked on provisioning cloud infrastructure, containerizing applications, and implementing GitOps workflows to deliver reliable and efficient deployments.
+              As a <b className="text-slate-900 dark:text-white">DevOps Intern</b>, I've provisioned cloud infrastructure as code, containerized applications, implemented <b className="text-slate-900 dark:text-white">GitOps workflows</b>, and set up monitoring with <b className="text-slate-900 dark:text-white">Prometheus and Grafana</b> — delivering reliable and efficient deployments end to end.
             </p>
             <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              I enjoy transforming complex problems into practical solutions through <b className="text-slate-900 dark:text-white">Infrastructure as Code, automation, and modern DevOps practices</b>. My work combines strong <b className="text-slate-900 dark:text-white">Linux fundamentals</b>, cloud architecture expertise, and development experience to build systems that are <b className="text-slate-900 dark:text-white">scalable, secure, and resilient</b>.
-            </p>
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-              Beyond technology, I'm passionate about <b className="text-slate-900 dark:text-white">continuous learning</b>, <b className="text-slate-900 dark:text-white">problem solving</b>, and creating impactful real-world projects that improve system reliability and developer productivity.
+              With a strong foundation in <b className="text-slate-900 dark:text-white">Linux and cloud-native architecture</b>, I focus on <b className="text-slate-900 dark:text-white">automation, scalability, and system reliability</b>. I'm passionate about <b className="text-slate-900 dark:text-white">continuous learning</b> and building impactful real-world projects that improve infrastructure resilience and developer productivity.
             </p>
           </motion.div>
 
